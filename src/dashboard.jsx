@@ -33,7 +33,7 @@ const formatDate = (dateString) => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("http://localhost:3008/dashboard/all", {
+        const response = await fetch("https://skanban.glasscube.io/dashboard/all", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token: JSON.parse(token) }),
@@ -55,7 +55,7 @@ const formatDate = (dateString) => {
     e.preventDefault();
     if (taskName.trim()) {
       try {
-        const response = await fetch("http://localhost:3008/dashboard/task", {
+        const response = await fetch("https://skanban.glasscube.io/dashboard/task", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -93,14 +93,14 @@ const formatDate = (dateString) => {
   // Handle task modification
   const handleModify = async () => {
     try {
-      const response = await fetch(`http://localhost:3008/dashboard/modify`, {
+      const response = await fetch(`https://skanban.glasscube.io/dashboard/modify`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({selectedTask,token:JSON.parse(token)}),
       });
       if (response.ok) {
         try {
-          const response = await fetch("http://localhost:3008/dashboard/all", {
+          const response = await fetch("https://skanban.glasscube.io/dashboard/all", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ token: JSON.parse(token) }),
@@ -126,7 +126,7 @@ const formatDate = (dateString) => {
   const handleDelete = async (taskId) => {
     try {
       console.log(taskId);
-      const response = await fetch("http://localhost:3008/dashboard/delete", {
+      const response = await fetch("https://skanban.glasscube.io/dashboard/delete", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: taskId, token: JSON.parse(token) }),
@@ -174,7 +174,7 @@ const formatDate = (dateString) => {
   
     // Optionally, send the update to the backend
     try {
-      fetch("http://localhost:3008/dashboard/status", {
+      fetch("https://skanban.glasscube.io/dashboard/status", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -30,7 +30,7 @@ const Signing = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = isSignUp ? 'http://localhost:3008/auth/signup' : 'http://localhost:3008/auth/signin';
+    const url = isSignUp ? 'https://skanban.glasscube.io/auth/signup' : 'https://skanban.glasscube.io/auth/signin';
 
     const requestBody = isSignUp
       ? {
